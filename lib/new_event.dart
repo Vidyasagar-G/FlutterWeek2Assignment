@@ -13,7 +13,7 @@ class _NewEventScreenState extends State<NewEventScreen>{
     return Scaffold(
       appBar: AppBar(
         title: Text("New event"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.deepPurple[700],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,33 +36,33 @@ class _NewEventScreenState extends State<NewEventScreen>{
                 hintText: ' Event',
                 hintStyle: TextStyle(color: Colors.white)
               ),
+              style: TextStyle(color: Colors.white),
               keyboardType: TextInputType.multiline,
               maxLines: null,
               controller: _textEditingController,
 
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 45.0),
-            child: Builder(
-              builder: (context) {
-                return ElevatedButton(
+          Builder(
+            builder: (context) {
+              return Center(
+                child: ElevatedButton(
                       onPressed: (){
                         String newEventText = _textEditingController.text;
                         Navigator.of(context).pop(newEventText);
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor: Colors.grey,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         shadowColor: Colors.deepPurple[800],
-                        fixedSize: const Size(320.0,50.0),
+                        fixedSize: const Size(300.0,50.0),
                       ),
                       child: const Text("ADD")
-                );
-              }
-            ),
+                ),
+              );
+            }
           ),
         ],
       ),
